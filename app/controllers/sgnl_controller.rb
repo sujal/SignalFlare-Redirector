@@ -1,0 +1,2 @@
+class SgnlController < ApplicationController
+end
