@@ -18,9 +18,19 @@ get '/' do
         //]]>
       </script>
       </head>
-      <body>
+      <body style='font-family: Verdana, Helvetica, sans-serif;'>
         <h1 style='text-align: center;'>SGNL</h1>
         <p style='text-align: center;'>Redirector for SignalFlare</p>
+        <h4>Usage</h4>
+        <p>
+          Encode: <code>/encode/[latitude]/[longitude]</code><br/>
+          Decode: <code>/[encoded lat]/[encoded lng]</code> - will redirect to Google Maps
+        </p>
+        <h4>Example URLs</h4>
+        <p>
+          West Hartford, CT: <a href='http://sgnl.ws/1PQXr/-325jx'>http://sgnl.ws/1PQXr/-325jx</a><br/>
+          Eiffel Tower, Paris: <a href='http://sgnl.ws/22v8f/6Mlb'>http://sgnl.ws/22v8f/6Mlb</a>
+        </p>
       </body>
     </html>"] 
 end
