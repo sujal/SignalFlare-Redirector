@@ -1,4 +1,4 @@
-This project is the web redirector for SignalFlare, an app for iOS (currently) and Android (coming soon).  This code is in the public domain, since it's of minimal value.
+This project is the web redirector for SignalFlare, an app for iOS (currently) and Android (coming soon).  This code is in the public domain. It's not that complex, and it's a minimalist example of getting a Sinatra app running on Heroku.
 
 The project basically consists of a Sinatra app that simply takes a simple request with encoded Latitude & Longitude and redirects the request to Google Maps. 
 
