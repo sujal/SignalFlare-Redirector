@@ -96,8 +96,26 @@ get '/test/*/*' do
   
 end
 
-get '/*/*' do
+# yes, being lazy and copying and pasting. :( will make it modular soon
+get '/*/*', :agent => /IEMobile/  do
   #matches two encoded values
+
+  encoded_lat = params[:splat][0]
+  encoded_lng = params[:splat][1]
+
+  sp = SgnlParser.new
+
+  decoded_lat = sp.decode_latlng(encoded_lat)
+  decoded_lng = sp.decode_latlng(encoded_lng)
+
+  headers['Cache-Control'] = 'public, max-age=86400'
+  headers['Location'] = "http://maps.google.com/maps?q=#{decoded_lat},#{decoded_lng}"
+  headers['Location'] = "http://www.bing.com/maps/?v=2&where1=#{decoded_lat}%2C#{decoded_lng}&q=#{decoded_lat}%2C#{decoded_lng}&cp=#{decoded_lat}~#{decoded_lng}&lvl=18&encType=1"
+
+  [301, "<!DOCTYPE html><html><head><title>sgnl</title></head><body>Redirecting to Bing Maps</body></html>" ]
+end
+
+get '/*/*' do
 
   encoded_lat = params[:splat][0]
   encoded_lng = params[:splat][1]
