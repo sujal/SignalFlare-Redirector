@@ -31,6 +31,10 @@ get '/' do
           West Hartford, CT: <a href='http://sgnl.ws/1PQXr/-325jx'>http://sgnl.ws/1PQXr/-325jx</a><br/>
           Eiffel Tower, Paris: <a href='http://sgnl.ws/22v8f/6Mlb'>http://sgnl.ws/22v8f/6Mlb</a>
         </p>
+        <div style='height: 150px'>&nbsp;</div>
+        <p>
+          &copy; 2011 Forche LLC - <a href='http://forchesoftware.com'>forche software</a>
+        </p>
       </body>
     </html>"] 
 end
