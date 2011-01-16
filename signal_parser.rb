@@ -6,7 +6,7 @@ get '/' do
   [200, "<!DOCTYPE html><html><head><title>sgnl</title><script type='text/javascript'>
         //<![CDATA[
              var _gaq = _gaq || [];
-             _gaq.push(['_setAccount', 'UA-77378-6']);
+             _gaq.push(['_setAccount', 'UA-77378-8']);
              _gaq.push(['_setDomainName', '.sgnl.ws']);
              _gaq.push(['_trackPageview']);
                                                      
