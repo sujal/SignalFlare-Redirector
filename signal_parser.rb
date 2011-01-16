@@ -3,6 +3,7 @@ require 'lib/sgnl_parser.rb'
 
 
 get '/' do 
+  headers['Cache-Control'] = 'public, max-age=86400'
   [200, "<!DOCTYPE html><html><head><title>sgnl</title><script type='text/javascript'>
         //<![CDATA[
              var _gaq = _gaq || [];
@@ -22,7 +23,7 @@ get '/' do
         <h1 style='text-align: center;'>SGNL</h1>
         <p style='text-align: center;'>Redirector for SignalFlare</p>
       </body>
-    </html>'"] 
+    </html>"] 
 end
 
 get '/test/*/*' do
