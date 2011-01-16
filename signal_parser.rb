@@ -51,8 +51,29 @@ get '/encode/*/*' do
 
   headers["Cache-Control"] = "public, max-age=86400"
 
-  [200,"#{raw_lat}/#{raw_lng}<br/>#{encoded_lat}/#{encoded_lng}"]
-
+  [200,"<!DOCTYPE html><html><head><title>sgnl</title><script type='text/javascript'>
+        //<![CDATA[
+             var _gaq = _gaq || [];
+             _gaq.push(['_setAccount', 'UA-77378-8']);
+             _gaq.push(['_setDomainName', '.sgnl.ws']);
+             _gaq.push(['_trackPageview']);
+                                                     
+             (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+             })();
+        //]]>
+      </script>
+      </head>
+      <body style='font-family: Verdana, Helvetica, sans-serif;'>
+      <p>
+      <em>Input</em>: #{raw_lat}/#{raw_lng}<br/>
+      <em>Output</em>: <a href='http://sgnl.ws/#{encoded_lat}/#{encoded_lng}'>http://sgnl.ws/#{encoded_lat}/#{encoded_lng}</a>
+      </p>
+      </body>
+      </html>
+ "]
 end
 
 get '/test/*/*' do
