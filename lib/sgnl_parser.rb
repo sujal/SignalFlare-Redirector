@@ -2,6 +2,23 @@ class SgnlParser
 
   INDEX_LIST = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','$','*','_','.','+','\'','(',')']
 
+  def encoded_latlng(val)
+
+    unless val.nil?
+      raw_input = val 
+      if raw_input.is_a? String
+
+        raw_input = val.to_f
+
+      end
+
+      decimal_input = (raw_input*1000000).round
+
+      self.encoded_int(decimal_input)
+
+    end
+    
+  end
   def encoded_int(val)
     base = INDEX_LIST.size
     neg = false

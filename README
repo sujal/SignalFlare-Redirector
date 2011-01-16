@@ -1,0 +1,14 @@
+This project is the web redirector for SignalFlare, an app for iOS (currently) and Android (coming soon).  This code is in the public domain, since it's of minimal value.
+
+The project basically consists of a Sinatra app that simply takes a simple request with encoded Latitude & Longitude and redirects the request to Google Maps. 
+
+An example might make this easier to understand. Given a request like this:
+
+http://sgnl.ws/1PQXr/-325jx
+
+this app will decode that and redirect you to 
+
+http://maps.google.com/maps?q=41.761957,-72.741863
+
+That's basically it. There is a test command and a encode command as well. See the signal_parser.rb file for more details.
+

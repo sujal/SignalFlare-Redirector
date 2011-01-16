@@ -25,6 +25,22 @@ get '/' do
     </html>"] 
 end
 
+get '/encode/*/*' do
+
+  raw_lat = params[:splat][0]
+  raw_lng = params[:splat][1]
+
+  sp = SgnlParser.new
+
+  encoded_lat = sp.encoded_latlng(raw_lat)
+  encoded_lng = sp.encoded_latlng(raw_lng)
+
+  headers["Cache-Control"] = "public, max-age=86400"
+
+  [200,"#{raw_lat}/#{raw_lng}<br/>#{encoded_lat}/#{encoded_lng}"]
+
+end
+
 get '/test/*/*' do
 
   lat = params[:splat][0]
