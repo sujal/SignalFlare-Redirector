@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'lib/sgnl_parser.rb'
 
+
 get '/' do 
   [200, "<!DOCTYPE html><html><head><title>sgnl</title><script type='text/javascript'>
         //<![CDATA[
@@ -42,4 +43,17 @@ end
 
 get '/*/*' do
   #matches two encoded values
+
+  encoded_lat = params[:splat][0]
+  encoded_lng = params[:splat][1]
+
+  sp = SgnlParser.new
+
+  decoded_lat = sp.decode_latlng(encoded_lat)
+  decoded_lng = sp.decode_latlng(encoded_lng)
+
+  headers['Cache-Control'] = 'public, max-age=86400'
+  headers['Location'] = "http://maps.google.com/maps?q=#{decoded_lat},#{decoded_lng}"
+
+  [301, "<!DOCTYPE html><html><head><title>sgnl</title></head><body>Redirecting to Google Maps</body></html>" ]
 end

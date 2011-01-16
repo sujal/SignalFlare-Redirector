@@ -86,7 +86,7 @@ class SgnlParser
       raw_decimal = raw_decimal*-1
     end
 
-    raw_decimal
+    raw_decimal / 1000000.0
     
   end
 
