@@ -87,6 +87,8 @@ class SgnlParser
         adjusted_point = 65
       when 43
         adjusted_point = 66
+      when 32
+        adjusted_point = 66
       when 39
         adjusted_point = 67
       when 40..41
