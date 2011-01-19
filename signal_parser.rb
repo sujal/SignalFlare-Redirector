@@ -82,13 +82,13 @@ end
 
 get '/test/*/*' do
 
-  lat = params[:splat][0]
-  lng = params[:splat][1]
+  lat = (params[:splat][0]).to_f
+  lng = (params[:splat][1]).to_f
 
   sp = SgnlParser.new
 
-  encoded_lat = sp.encoded_int(lat)
-  encoded_lng = sp.encoded_int(lng)
+  encoded_lat = sp.encoded_latlng(lat)
+  encoded_lng = sp.encoded_latlng(lng)
   decoded_lat = sp.decode_latlng(encoded_lat)
   decoded_lng = sp.decode_latlng(encoded_lng)
 
