@@ -1,6 +1,6 @@
 class SgnlParser
 
-  INDEX_LIST = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','~','*','_','.','!','\'','(',')']
+  INDEX_LIST = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','~','*','_','.','!','\'',';','^']
 
   def encoded_latlng(val)
 
@@ -89,8 +89,12 @@ class SgnlParser
         adjusted_point = 66
       when 39
         adjusted_point = 67
-      when 40..41
+      when 40..41 #backward compat
         adjusted_point = c+28
+      when 59
+        adjusted_point = 68  
+      when 136
+        adjusted_point = 69
       end
 
       raw_decimal += adjusted_point*(70**cur_index)
